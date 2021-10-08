@@ -37,18 +37,16 @@ AutosRUs’ newest prototype, the MechaCar, is suffering from production trouble
 
 ## Linear Regression to Predict MPG
 
-Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+
 Is the slope of the linear model considered to be zero? Why or why not?
-Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
 
 
-Vehicle length and ground clearance (as well as intercept) are statistically unlikely to provide random amounts of variance to the linear model. In other words the vehicle length and ground clearance have a significant impact on the mpg efficiency. 
 
-The R-squared value represents how well the regression model approximates real-world data points. Our results show that roughly 70% of the mpg variablilty (dependent) is explained using the linear model with multiple independent variables: length, weight, spoiler angle, ground clearance and drivetrain. 
+Vehicle length and ground clearance, as well as intercept, are statistically unlikely to provide random amounts of variance to the linear model (once the values are < 0.05). In other words the vehicle length and ground clearance have a significant impact on the mpg efficiency. 
 
-The Pr(>|t|) value for the intercept is also statistically significant, the intercept term explains a significant amount of variability in the dependent variable (mpg) when the independent ones are equal to zero. 
+The R-squared value represents how well the regression model approximates real-world data points. The results show that roughly 70% of the mpg variablilty is explained using the linear model with multiple independent variables: length, weight, spoiler angle, ground clearance and drivetrain. 
 
-there are definitely other variables that can help explain the variability of our dependent variable that have not been included in our model.
+The Pr(>|t|) value for the intercept is also statistically significant, the intercept term explains a significant amount of variability in the dependent variable (mpg) when the independent ones are equal to zero. There are definitely other variables that can help explain the variability of our dependent variable that have not been included in the model. In order to predict 
 
 <p align="center">
 <kbd>
