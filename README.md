@@ -62,7 +62,7 @@ The intercept term is the amount of variability in the dependent variable (mpg) 
 **Ho : The slope of the linear model is zero (no significant linear relationship)**
 
 
-The R-squared value represents how well the regression model approximates real-world data points. The results show that roughly 70% of the mpg variablilty is explained using the linear model with multiple variables: length, weight, spoiler angle, ground clearance and drivetrain. 
+The R-squared value represents how well the regression model approximates real-world data points. The results show that roughly 70% of the mpg variability is explained using the linear model with multiple variables: length, weight, spoiler angle, ground clearance and drivetrain. 
 
 There are definitely other variables that can help explain mgp variability that have not been included in the model. In order to predict with more precision more information is needed, 30% uncertainty is unacceptable when designing a new car model for example. 
 
@@ -78,7 +78,7 @@ The design specifications for the MechaCar suspension coils dictate that the var
 </kbd>  &nbsp;
 </p>
 
-The **current manufacturing data meets this design specification** once the variance is around 60. However, this sample includes 3 different lots that should be analized individually, if the lots are statistically similar the manufacturing process is probably stable and we can expect similar results in the future. 
+The **current manufacturing data meets this design specification** once the variance is around 60. However, this sample includes 3 different lots that should be analyzed individually, if the lots are statistically similar the manufacturing process is probably stable and we can expect similar results in the future. 
 
 <p align="center">
 <kbd>
@@ -95,7 +95,7 @@ The results show that **not all the manufacturing lots meet the design specifica
 
 :negative_squared_cross_mark:  The third lot has a variance of 170, quite alarming comparing to the other lots. 
 
-The third lot raises a red flag, something out of the normal happen in the process between the producion of lot number 1 and 3. Machine calibration, different employees and shifts, unexpected shortages, a lot can happen to affect the normal activity of a manufacturing operation. The company should investigate further to understand the abnormality in the third lot and address the necessary repairs to avoid producing more bad lots in the future. Not just a waste of money and resources for the company, it can bring safety issues for the final consumer.    
+The third lot is raising a red flag, something out of the normal happened in the process between the production of lot number 1 and 3. Machine calibration, different employees and shifts, unexpected shortages, a lot can happen to affect the normal activity of a manufacturing operation. The company should investigate further to understand the abnormality in the third lot and address the necessary repairs to avoid producing more bad lots in the future. Not just a waste of money and resources for the company, this variability can bring safety issues for the final consumer.    
 
  
  ## T-Tests on Suspension Coils
@@ -133,7 +133,7 @@ The most important part about the t-test comes when we see the result of the who
 </kbd>  &nbsp;
 </p>
 
-P-values very close to the cutoff (0.05) are considered to be marginal (can go either way) and should be reported as relevant information as well. While in the second topic the variance for the whole sample didn't raise a flag that something might be wrong with the process, this time the p-value is trying to give us a clue that we shoud investigate the lots seperately like we did.  
+P-values very close to the cutoff (0.05) are considered to be marginal (can go either way) and should be reported as relevant information as well. While in the second topic the variance for the whole sample didn't raise a flag that something might be wrong with the process, this time the p-value is trying to give us a clue that we should investigate the lots separately.  
 
 
 
@@ -141,32 +141,21 @@ P-values very close to the cutoff (0.05) are considered to be marginal (can go e
 
 The environmental impact of a vehicle is very discussed nowadays, MechaCar could invest in an emissions control program to limit vehicle's exhaust pollution. But before making any decisions is important to see where the company stands against the competition. 
 
-Emissions measured on chassis dynamometers are usually expressed in grams of pollutant per unit of traveled distance (g/km). We can start obtaining data (g/km measuments) from a sample of vehicles from MechaCar that meet the eligibility specifications and compare to the country's average: canadians vehicles emit on average [206 grams of CO2 (gCO2) per kilometre](https://www.nationalobserver.com/2019/09/04/analysis/canadian-cars-are-worlds-dirtiest-ev-age-essential).
+Emissions measured on chassis dynamometers are usually expressed in grams of pollutant per unit of traveled distance (g/km). We can start obtaining data (g/km measurements) from a sample of vehicles from MechaCar that meet the eligibility specifications and compare to the country's average: Canadians vehicles emit on average [206 grams of CO2 (gCO2) per kilometre](https://www.nationalobserver.com/2019/09/04/analysis/canadian-cars-are-worlds-dirtiest-ev-age-essential).
 
 We can do a simple one-sample t-test with the MechaCar's sample measurements and the 206g/km as the population mean, or use a two-sample t-test in case we have data available about the competitor's emission efficiency. 
 
 For a one-sample t-test we can define Ho and Ha as :
 
-**Ho : MechaCar vehicles emit less pollutants than then national average **
+**Ho : MechaCar vehicles emit less pollutants than then national average (< 206g/km)**
 
-**Ha : MechaCar vehicles emit more pollutants than then national average **
+**Ha : MechaCar vehicles emit more pollutants than then national average**
 
-When we use the sample measurements and put the data through the hypothesis test we can expect:
- less than 0.05. In real terms, there is a probability of 0.05 that you will mistakenly reject the pizza place’s claim that their delivery time is less than or equal to 30 minutes.
+When we use the sample measurements and put the data through the hypothesis test we can expect: 
 
-What metric or metrics are you going to test?
-What is the null hypothesis or alternative hypothesis?
-What statistical test would you use to test the hypothesis? And why?
-What data is needed to run the statistical test?
-
-
-You conduct a hypothesis test because you believe the null hypothesis, Ho, that the mean delivery time is 30 minutes max, is incorrect. Your alternative hypothesis (Ha) is that the mean time is greater than 30 minutes.
-
-
-
-
-Because we set the significance level at 5%, the null hypothesis should not be rejected.
-we do not have sufficient evidence to reject the null hypothesis, and we would state that the two means are statistically similar. 
-
+- p-values less than 0.05 that would reject the null hypothesis and show that MechaCar do not emit less pollutants than the national average.
+- p-values more than 0.05 what would fail to reject the null hypothesis.
 
 The smaller the p-value, the stronger the evidence that you should reject the null hypothesis.
+
+The significance level tells us that there is a probability of 0.05 that we will mistakenly reject the claim that MechaCar vehicles emit less pollutants than the average.
