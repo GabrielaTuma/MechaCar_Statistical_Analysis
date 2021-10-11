@@ -38,21 +38,16 @@ AutosRUs’ newest prototype, the MechaCar, is suffering from production trouble
 ## Linear Regression to Predict MPG
 
 
-Is the slope of the linear model considered to be zero? Why or why not?
-
-
-
-Vehicle length and ground clearance, as well as intercept, are statistically unlikely to provide random amounts of variance to the linear model (once the values are < 0.05). In other words the vehicle length and ground clearance have a significant impact on the mpg efficiency. 
-
-The R-squared value represents how well the regression model approximates real-world data points. The results show that roughly 70% of the mpg variablilty is explained using the linear model with multiple independent variables: length, weight, spoiler angle, ground clearance and drivetrain. 
-
-The Pr(>|t|) value for the intercept is also statistically significant, the intercept term explains a significant amount of variability in the dependent variable (mpg) when the independent ones are equal to zero. There are definitely other variables that can help explain the variability of our dependent variable that have not been included in the model. In order to predict 
-
 <p align="center">
 <kbd>
   <img src="https://github.com/GabrielaTuma/MechaCar_Statistical_Analysis/blob/21380f74162ea8e65d84db32d6ef3a71e9985f32/Images/Deliverable%201.2.png">
 </kbd>  &nbsp;
 </p>
+
+
+Vehicle length and ground clearance, as well as intercept, are statistically unlikely to provide random amounts of variance to the linear model (once the values for Pr(>|t|) are < 0.05.) In other words, **the vehicle length and ground clearance have a significant impact on the mpg efficiency**. Vehicle weight is also very close to the significance level and should be mentioned. 
+
+Variables p-values can be used to determine which terms to keep in the regression model, in this case, we can consider removing Spoiler Angle and AWD, for example. 
 
 
 <p align="center">
@@ -61,10 +56,21 @@ The Pr(>|t|) value for the intercept is also statistically significant, the inte
 </kbd>  &nbsp;
 </p>
 
+
+The intercept term is the amount of variability in the dependent variable (mpg) when the independent ones are equal to zero and the Pr(>|t|) value for the intercept is going to tell us if the variables analyzed have a strong relationship with the vehicle's mpg. The calculated p-value for the intercept is smaller than the significance level, it's statistically significant and rejects the null hypothesis:
+
+**Ho : The slope of the linear model is zero (no significant linear relationship)**
+
+
+The R-squared value represents how well the regression model approximates real-world data points. The results show that roughly 70% of the mpg variablilty is explained using the linear model with multiple variables: length, weight, spoiler angle, ground clearance and drivetrain. 
+
+There are definitely other variables that can help explain mgp variability that have not been included in the model. In order to predict with more precision more information is needed, 30% uncertainty is unacceptable when designing a new car model for example. 
+
+
+
 ## Summary Statistics on Suspension Coils
 
-The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
-
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. 
 
 <p align="center">
 <kbd>
@@ -72,6 +78,7 @@ The design specifications for the MechaCar suspension coils dictate that the var
 </kbd>  &nbsp;
 </p>
 
+The **current manufacturing data meets this design specification** once the variance is around 60. However, this sample includes 3 different lots that should be analized individually, if the lots are statistically similar the manufacturing process is probably stable and we can expect similar results in the future. 
 
 <p align="center">
 <kbd>
@@ -79,27 +86,21 @@ The design specifications for the MechaCar suspension coils dictate that the var
 </kbd>  &nbsp;
 </p>
 
+
+The results show that **not all the manufacturing lots meet the design specification**:
+
+:white_check_mark:  The first lot has an average of 1500, which is exactly what we want from the process.
+
+:white_check_mark:  The second lot is still respecting the tolerance, for now nothing unusual can be observed.
+
+:negative_squared_cross_mark:  The third lot has a variance of 170, quite alarming comparing to the other lots. 
+
+The third lot raises a red flag, something out of the normal happen in the process between the producion of lot number 1 and 3. Machine calibration, different employees and shifts, unexpected shortages, a lot can happen to affect the normal activity of a manufacturing operation. The company should investigate further to understand the abnormality in the third lot and address the necessary repairs to avoid producing more bad lots in the future. Not just a waste of money and resources for the company, it can bring safety issues for the final consumer.    
+
  
  ## T-Tests on Suspension Coils
  
- then briefly summarize your interpretation and findings for the t-test results. Include screenshots of the t-test to support your summary.
- 
- A p value of 0.06 means that there is a probability of 6% of obtaining that result by chance when the treatment has no real effect. Because we set the significance level at 5%, the null hypothesis should not be rejected.
-we do not have sufficient evidence to reject the null hypothesis, and we would state that the two means are statistically similar. 
-
-The smaller the p-value, the stronger the evidence that you should reject the null hypothesis.
-
-Values close to 0 indicate that the observed difference is unlikely to be due to chance
-
- large p-value (> 0.05) indicates weak evidence against the null hypothesis, so you fail to reject the null hypothesis
- 
- p-values very close to the cutoff (0.05) are considered to be marginal (could go either way). Always report the p-value so your readers can draw their own conclusions.
- 
-<p align="center">
-<kbd>
-  <img src="https://github.com/GabrielaTuma/MechaCar_Statistical_Analysis/blob/b47ee172a0800a4bfceee0f2d48caa19956f039f/Images/Deliverable%203.1.png">
-</kbd>  &nbsp;
-</p>
+ Similarly to the last topic we are going to analyze the lots individually. The t-test for the lot number 1 shows a p-value of 1, which means that the mean value for the lot is the same as the intended mean: 1500. As stated before, lot 1 is a perfect representation of what we want from our operations.  
 
 <p align="center">
 <kbd>
@@ -108,11 +109,15 @@ Values close to 0 indicate that the observed difference is unlikely to be due to
 </p>
 
 
+A p-value of 0.60 means that there is a probability of 60% of obtaining that result by chance when using lot number 2.  
+
 <p align="center">
 <kbd>
   <img src="https://github.com/GabrielaTuma/MechaCar_Statistical_Analysis/blob/b47ee172a0800a4bfceee0f2d48caa19956f039f/Images/Deliverable%203.2%20Lot2.png">
 </kbd>  &nbsp;
 </p>
+
+When we get to lot number 3 p-value is 0.04, below our significance level of 5%. Values close to 0 indicate that the observed difference is unlikely to be due to chance. In other words, lot 3 is out of the MechaCar's design specification and this was probably caused by special circumstances in the process that should be investigated. 
 
 <p align="center">
 <kbd>
@@ -120,11 +125,35 @@ Values close to 0 indicate that the observed difference is unlikely to be due to
 </kbd>  &nbsp;
 </p>
 
+The most important part about the t-test comes when we see the result of the whole sample including all lots. 
+
+<p align="center">
+<kbd>
+  <img src="https://github.com/GabrielaTuma/MechaCar_Statistical_Analysis/blob/b47ee172a0800a4bfceee0f2d48caa19956f039f/Images/Deliverable%203.1.png">
+</kbd>  &nbsp;
+</p>
+
+P-values very close to the cutoff (0.05) are considered to be marginal (can go either way) and should be reported as relevant information as well. While in the second topic the variance for the whole sample didn't raise a flag that something might be wrong with the process, this time the p-value is trying to give us a clue that we shoud investigate the lots seperately like we did.  
+
+
 
 ## Study Design: MechaCar vs Competition
 
-Write a short description of a statistical study that can quantify how the MechaCar performs against the competition. In your study design, think critically about what metrics would be of interest to a consumer: for a few examples, cost, city or highway fuel efficiency, horse power, maintenance cost, or safety rating.
-In your description, address the following questions:
+The environmental impact of a vehicle is very discussed nowadays, MechaCar could invest in an emissions control program to limit vehicle's exhaust pollution. But before making any decisions is important to see where the company stands against the competition. 
+
+Emissions measured on chassis dynamometers are usually expressed in grams of pollutant per unit of traveled distance (g/km). We can start obtaining data (g/km measuments) from a sample of vehicles from MechaCar that meet the eligibility specifications and compare to the country's average: canadians vehicles emit on average [206 grams of CO2 (gCO2) per kilometre](https://www.nationalobserver.com/2019/09/04/analysis/canadian-cars-are-worlds-dirtiest-ev-age-essential).
+
+We can do a simple one-sample t-test with the MechaCar's sample measurements and the 206g/km as the population mean, or use a two-sample t-test in case we have data available about the competitor's emission efficiency. 
+
+For a one-sample t-test we can define Ho and Ha as :
+
+**Ho : MechaCar vehicles emit less pollutants than then national average **
+
+**Ha : MechaCar vehicles emit more pollutants than then national average **
+
+When we use the sample measurements and put the data through the hypothesis test we can expect:
+ less than 0.05. In real terms, there is a probability of 0.05 that you will mistakenly reject the pizza place’s claim that their delivery time is less than or equal to 30 minutes.
+
 What metric or metrics are you going to test?
 What is the null hypothesis or alternative hypothesis?
 What statistical test would you use to test the hypothesis? And why?
@@ -133,6 +162,11 @@ What data is needed to run the statistical test?
 
 You conduct a hypothesis test because you believe the null hypothesis, Ho, that the mean delivery time is 30 minutes max, is incorrect. Your alternative hypothesis (Ha) is that the mean time is greater than 30 minutes.
 
-You randomly sample some delivery times and run the data through the hypothesis test, and your p-value turns out to be 0.001, which is much less than 0.05. In real terms, there is a probability of 0.05 that you will mistakenly reject the pizza place’s claim that their delivery time is less than or equal to 30 minutes.
 
-Is the sample enough to 
+
+
+Because we set the significance level at 5%, the null hypothesis should not be rejected.
+we do not have sufficient evidence to reject the null hypothesis, and we would state that the two means are statistically similar. 
+
+
+The smaller the p-value, the stronger the evidence that you should reject the null hypothesis.
